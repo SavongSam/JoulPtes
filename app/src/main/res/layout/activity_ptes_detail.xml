@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.card.MaterialCardView
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="200dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                android:clipChildren="true"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/colorPrimaryDark">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorPrimaryDark">
+
+                    <ImageView
+                        android:id="@+id/ptes_detail_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/img_1"
+                        android:scaleType="centerCrop"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="#ffffff"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="12dp">
+
+                        <TextView
+                            android:id="@+id/ptes_detail_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="100$ / "
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/ptes_detail_price_format"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/ptes_detail_price"
+                            android:textAllCaps="true"
+                            android:textStyle="normal"
+                            android:text="night"
+                            android:textSize="12sp"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </android.support.design.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-40dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/colorPrimary"
+                android:paddingStart="16dp"
+                android:paddingTop="60dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:text="3 guests"/>
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_dash"
+                        android:tint="@color/colorPrimaryDark"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:text="1 queen bed"/>
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_dash"
+                        android:tint="@color/colorPrimaryDark"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:text="1 bath"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/ptes_detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:textSize="12sp"
+                    android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="20sp"
+                            android:paddingBottom="10dp"
+                            android:text="Amentities"/>
+
+                    </LinearLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:paddingBottom="8dp"
+                        android:paddingStart="27dp"
+                        android:paddingEnd="27dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_columnWeight="1"
+                            android:drawablePadding="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Bathtub"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_columnWeight="1"
+                            android:drawablePadding="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Parking"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_columnWeight="1"
+                            android:drawablePadding="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Wifi"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_columnWeight="1"
+                            android:drawablePadding="8dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="AC"
+                            />
+
+                    </GridLayout>
+
+                    <Button
+                        android:id="@+id/ptes_detail_amentities_load_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:textColor="@color/colorPrimary"
+                        android:textAlignment="center"
+                        android:layout_marginStart="27dp"
+                        android:layout_marginEnd="27dp"
+                        android:text="2+ mores"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:paddingBottom="10dp"
+                        android:textSize="20sp"
+                        android:text="Location"
+                        />
+
+                    <TextView
+                        android:id="@+id/ptes_detail_physical_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginBottom="18dp"
+                        android:text="21 262 Phnom Penh, រាជធានីភ្នំពេញ 12207" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="205dp"
+                        android:background="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
