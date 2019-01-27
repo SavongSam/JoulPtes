@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "159816519281",
+    "firebase_url": "https://joulptes.firebaseio.com",
+    "project_id": "joulptes",
+    "storage_bucket": "joulptes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159816519281:android:e2e4c6a0a092139a",
+        "android_client_info": {
+          "package_name": "com.example.molika.joulptes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159816519281-l2mrs18t8th6talucc72m4khoimtj3eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFrAeDH7DxuRqgigzumt7w38uK-u2LByw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
