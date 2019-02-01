@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.design.card.MaterialCardView
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="200dp"
@@ -25,6 +26,7 @@
                 android:layout_gravity="center">
 
                 <ImageView
+                    android:id="@+id/ptes_img_cover"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/img_1"
@@ -42,6 +44,7 @@
                         android:layout_height="60dp"
                         android:src="@drawable/ptes_price_tag_bg"/>
                     <TextView
+                        android:id="@+id/ptes_price_cover"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100$"
@@ -61,7 +64,7 @@
                 android:paddingBottom="8dp">
 
                 <TextView
-                    android:id="@+id/ptes_name"
+                    android:id="@+id/ptes_name_cover"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ptes name"
@@ -113,6 +116,7 @@
                         android:tint="@color/colorPrimaryDark"/>
 
                     <TextView
+                        android:id="@+id/ptes_reviews_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="300 reviews"
@@ -125,5 +129,6 @@
 
         </LinearLayout>
 
-    </android.support.design.card.MaterialCardView>
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>

@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar">
+
+    </android.support.v7.widget.Toolbar>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,8 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <android.support.design.card.MaterialCardView
-                style="@style/Widget.MaterialComponents.CardView"
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="200dp"
@@ -24,6 +32,7 @@
                 android:clipChildren="true"
                 app:cardUseCompatPadding="true"
                 app:cardBackgroundColor="@color/colorPrimaryDark">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
@@ -53,7 +62,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
-                            android:text="100$ / "
+                            android:text="100$"
                             android:textSize="16sp"/>
 
                         <TextView
@@ -63,12 +72,13 @@
                             android:layout_toEndOf="@id/ptes_detail_price"
                             android:textAllCaps="true"
                             android:textStyle="normal"
-                            android:text="night"
+                            android:text=" / night"
                             android:textSize="12sp"/>
                     </RelativeLayout>
 
                 </RelativeLayout>
-            </android.support.design.card.MaterialCardView>
+
+            </android.support.v7.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -174,7 +184,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:drawableStart="@drawable/ic_action_bathtub"
                             android:textColor="@color/colorPrimaryDark"
                             android:layout_columnWeight="1"
                             android:drawablePadding="8dp"
@@ -186,7 +196,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:drawableStart="@drawable/ic_action_parking"
                             android:textColor="@color/colorPrimaryDark"
                             android:layout_columnWeight="1"
                             android:drawablePadding="8dp"
@@ -198,7 +208,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:drawableStart="@drawable/ic_action_wifi"
                             android:textColor="@color/colorPrimaryDark"
                             android:layout_columnWeight="1"
                             android:drawablePadding="8dp"
@@ -210,7 +220,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
-                            android:drawableStart="@drawable/ic_action_filling_star"
+                            android:drawableStart="@drawable/ic_action_ac"
                             android:textColor="@color/colorPrimaryDark"
                             android:layout_columnWeight="1"
                             android:drawablePadding="8dp"
@@ -260,8 +270,11 @@
                         android:text="21 262 Phnom Penh, រាជធានីភ្នំពេញ 12207" />
 
                     <ImageView
+                        android:id="@+id/ptes_detail_map_img"
                         android:layout_width="match_parent"
                         android:layout_height="205dp"
+                        android:src="@drawable/map_image_test"
+                        android:scaleType="centerCrop"
                         android:background="@color/colorPrimaryDark"/>
                 </LinearLayout>
 
