@@ -1,126 +1,62 @@
 package com.example.molika.joulptes;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String PTESNAME_KEY = "ptesname";
-    public static final String PTESLOCATION_KEY = "pteslocation";
-    public static final String TAG = "Ptes";
+    private DrawerLayout mDrawerLayout;
 
-    TextView mPtesTextView;
-    Button mAddBtn;
-    Button mDisplaybtn;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
-    private DocumentReference mDocref = FirebaseFirestore.getInstance().document("Ptes/Ptes detail");
+//    private ArrayList<Item> mItemsDataSet = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mPtesTextView = (TextView) findViewById(R.id.etxt_display);
-        mAddBtn = (Button) findViewById(R.id.btn_add);
-        mDisplaybtn = (Button) findViewById(R.id.btn_display);
 
-        mAddBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText ptnameview = (EditText) findViewById(R.id.etext_ptesname);
-                EditText ptlocationview = (EditText) findViewById(R.id.etext_pteslocation);
-                String ptnametext = ptnameview.getText().toString();
-                String ptlocationtext = ptlocationview.getText().toString();
+        mDrawerLayout = findViewById(R.id.drawer_layout);
 
-                if (ptnametext.isEmpty() || ptlocationtext.isEmpty()){
-                    Map<String, Object> dataTosave = new HashMap<String, Object>();
-                    dataTosave.put(PTESNAME_KEY, ptnametext);
-                    dataTosave.put(PTESLOCATION_KEY,ptlocationtext);
-                    mDocref.set(dataTosave).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "Document has been saved!");
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Document was not saved!",e);
-                        }
-                    });
-                }
-            }
-        });
+        mRecyclerView = findViewById(R.id.my_recycler_view);
 
-        mDisplaybtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mDocref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if (documentSnapshot.exists()){
-                            String ptnametext = documentSnapshot.getString(PTESNAME_KEY);
-                            String ptlocationtext = documentSnapshot.getString(PTESLOCATION_KEY);
+        mRecyclerView.setHasFixedSize(true);
 
-                            mPtesTextView.setText("Ptas Name:"+ptnametext+"Ptes Location"+ptlocationtext);
-                        }
-                    }
-                });
-            }
-        });
+        //Set RecyclerView into LinearLayout
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        //specify an adapter
+        mAdapter = new ItemsAdapter(this ,ItemsCollection.getItems());
+        mRecyclerView.setAdapter(mAdapter);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_action_menu);
+
     }
 
-
-
-//    public  void savePtes(View view){
-//        EditText ptnameview = (EditText) findViewById(R.id.etext_ptesname);
-//        EditText ptlocationview = (EditText) findViewById(R.id.etext_pteslocation);
-//        String ptnametext = ptnameview.getText().toString();
-//        String ptlocationtext = ptlocationview.getText().toString();
-//
-//        if (ptnametext.isEmpty() || ptlocationtext.isEmpty()){
-//            Map<String, Object> dataTosave = new HashMap<String, Object>();
-//            dataTosave.put(PTESNAME_KEY, ptnametext);
-//            dataTosave.put(PTESLOCATION_KEY,ptlocationtext);
-//            mDocref.set(dataTosave).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                @Override
-//                public void onSuccess(Void aVoid) {
-//                    Log.d(TAG, "Document has been saved!");
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//                    Log.w(TAG, "Document was not saved!",e);
-//                }
-//            });
-//        }
-//    }
-
-//    public void fecthPtes(View view){
-//        mDocref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//            @Override
-//            public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                if (documentSnapshot.exists()){
-//                    String ptnametext = documentSnapshot.getString(PTESNAME_KEY);
-//                    String ptlocationtext = documentSnapshot.getString(PTESLOCATION_KEY);
-//
-//                    mPtesTextView.setText("Ptas Name:"+ptnametext+"Ptes Location"+ptlocationtext);
-//                }
-//            }
-//        });
-//    }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
